@@ -6,6 +6,8 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Taehyuk. I'm excited about this project because I will learn how to make web applications.
+
 	
 ## Technologies
 Technologies used for this project:
