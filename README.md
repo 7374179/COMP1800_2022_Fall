@@ -6,14 +6,15 @@
 
 ## General Info
 This browser based web application to ...
-	
-## Technologies
+* Hi my name is Troy. I'm excited about this project because I can make something I'm passionate about
+
+## Technologies 
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
-* Bootstrap 
+* Bootstrap
 * ...
-	
+
 ## Content
 Content of the project folder:
 
@@ -41,4 +42,6 @@ Firebase hosting files:
 Tips for file naming files and folders:
 * use lowercase with no spaces
 * use dashes (not underscore) for word separation
+
+haha I'm first lmao
 
