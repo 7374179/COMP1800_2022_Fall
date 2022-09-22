@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+*Hi my name is Tae Hyung. I am excited about this project because I want to help students who needs help.
 	
 ## Technologies
 Technologies used for this project:
