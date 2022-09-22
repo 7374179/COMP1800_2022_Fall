@@ -6,15 +6,15 @@
 
 ## General Info
 This browser based web application to ...
-<<<<<<< HEAD
-*Hi my name is Tae Hyung. I am excited about this project because I want to help students who needs help.
+
+
 	
 ## Technologies
-=======
 * Hi my name is Troy. I'm excited about this project because I can make something I'm passionate about
-
+* Hi my name is Taehyuk. I'm excited about this project because I will learn how to make web applications.
+* Hi my name is Tae Hyung. I am excited about this project because I want to help students who needs help.
+	
 ## Technologies 
->>>>>>> b74f8986ad64bdae06a0dc01de92c94c149f7d44
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
