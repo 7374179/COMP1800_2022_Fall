@@ -59,12 +59,4 @@ Firebase hosting files:
 
 ```
 
-<<<<<<< HEAD
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
-
-haha I'm first lmao
-=======
->>>>>>> 233925517663f8209fd90e5323a99f5f8f2572d7
 
