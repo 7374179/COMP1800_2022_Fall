@@ -46,112 +46,91 @@
     <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
 
-
     <!-- the body of your page goes here -->
     <div class="container text-center">
-
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
-                <div class="row row-cols-1 row-cols-sm-2 g-2">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="35%" y="50%" fill="#eceeef"
-                                    dy=".3em">Thumbnail</text>
-                            </svg>
-
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="35%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="35%" y="50%" fill="#eceeef"
-                                    dy=".3em">Thumbnail</text>
-                            </svg>
-
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="35%" y="50%" fill="#eceeef"
-                                    dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="box">
+            <div class="boxInner">
+                <a href="http://naver.com">
+                    <img src="./images/board.png" alt="image" width=></a>
+                <div class="titleBox">BOARD</div>
             </div>
         </div>
+        <div class="box">
+            <div class="boxInner">
+                <img src="./images/event.png" alt="image">
+                <div class="titleBox">EVENT</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxInner">
+                <img src="./images/friends.png" alt="image">
+                <div class="titleBox">FRIENDS</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxInner">
+                <img src="./images/bookmark.png" alt="image">
+                <div class="titleBox">BOOKMARK</div>
+            </div>
+        </div>
+        <a href="login.html" class="btn btn-dark" role="button">Log in / Sign in</a>
+
     </div>
-    </div>
+    <style>
+        .box {
+            float: left;
+            position: relative;
+            width: 50%;
+            padding-bottom: 50%;
+            border: 1px soild black;
+        }
+
+        .boxInner {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 10px;
+            bottom: 10px;
+            overflow: hidden;
+            border: 1px solid black;
+            background-color: mintcream;
+        }
+
+        .boxInner img {
+            width: 80%;
+            height: 80%;
+        }
+
+        .boxInner .titleBox {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-bottom: -50px;
+            /* background: #000;
+                background: rgba(0, 0, 0, 0.5); */
+            /* color: #FFF; */
+            color: black;
+            font-size: 1.5em;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .btn{
+            margin-top: 50px;
+        }
+    </style>
+
 
 
     <!-- <img class="d-block mx-auto mb-4" src="./images/elmo.jpg" alt="" width="200" height="200"> -->
     <!-- <h1>Welcome to our App</h1> -->
-    <style>
-        h1{
+    <!-- <style>
+        h1 {
             text-align: center;
         }
-    </style>
-    <a href="login.html" class="btn btn-dark" role="button">Log in / Sign in</a>
-    </div>
+    </style> -->
     <!-- our own footer goes here-->
+
     <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
