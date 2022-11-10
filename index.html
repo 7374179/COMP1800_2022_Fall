@@ -164,19 +164,23 @@
 
         <div class="row g-2">
             <div class="col-6">
-                <div class="p-3 border bg-light"> <a href="login.html"><img src="./images/board1.png" alt="image"></a>
+                <div class="p-3 border bg-light"> <a href="login.html" onclick="myFunction()"><img
+                            src="./images/board1.png" alt="image"></a>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-3 border bg-light"><a href="login.html"><img src="./images/event1.png" alt="image"></a>
+                <div class="p-3 border bg-light"><a href="login.html" onclick="myFunction()"><img
+                            src="./images/event1.png" alt="image"></a>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-3 border bg-light"><a href="login.html"><img src="./images/friends1.png" alt="image"></a>
+                <div class="p-3 border bg-light"><a href="login.html" onclick="myFunction()"><img
+                            src="./images/friends1.png" alt="image"></a>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-3 border bg-light"><a href="login.html"><img src="./images/bookmark1.png" alt="image"></a>
+                <div class="p-3 border bg-light"><a href="login.html" onclick="myFunction()"><img
+                            src="./images/bookmark1.png" alt="image"></a>
                 </div>
             </div>
         </div>
@@ -239,6 +243,12 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+    <script>function myFunction() {
+                alert("Log in required.");
+                window.location = "login.html";
+            
+        }
+    </script>
     <script src="./scripts/firebaseAPI_TEAM23.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
