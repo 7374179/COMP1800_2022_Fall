@@ -1,23 +1,26 @@
 var postID = localStorage.getItem("postID");
 
-db.collection("posts").where("code", "==", postID)
-            .get()
-            .then(queryPost => {
-                //see how many results you have got from the query
-                size = queryPost.size;
-                // get the documents of query
-                Posts = queryPost.docs;
+function getPostInfo(postCode){
+    db.collection("post").where("code", "==", postCode)
+           .get()
+           .then(queryPost => {
+               size = queryPost.size;
+               posts = queryPost.docs;   
 
-                // We want to have one document per hike, so if the the result of 
-                //the query is more than one, we can check it right now and clean the DB if needed.
-                if (size = 1) {
-                    var thisPost = Posts[0].data();
-                    name = thisPost.name;
-                    document.getElementById("PostName").innerHTML = name;
-                } else {
-                    console.log("Query has more than one data")
-                }
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            });
+               if (size = 1) {
+                   var thisPost = posts[0].data();
+                   var title = thisPost.name;
+                   var author = thisPost.nickname;
+                   var content = thisPost.content;
+                   document.querySelector('.body-title').innerHTML = title;
+                   document.querySelector('.body-author').innterHTML = author;
+                   document.querySelector('.body-content').innerHTML = content;
+               } else {
+                   console.log("Query has more than one data")
+               }
+           })
+           .catch((error) => {
+               console.log("Error getting documents: ", error);
+           });
+}
+getPostInfo(postID);
