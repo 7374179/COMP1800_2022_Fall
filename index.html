@@ -164,22 +164,22 @@
 
         <div class="row g-2">
             <div class="col-6">
-                <div class="p-3 border bg-light"> <a href="login.html" onclick="myFunction()"><img
-                            src="./images/board1.png" alt="image"></a>
+                <div class="p-3 border bg-light"> <a onclick="logout()"><img src="./images/board1.png"
+                            alt="image"></a>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-3 border bg-light"><a href="login.html" onclick="myFunction()"><img
-                            src="./images/event1.png" alt="image"></a>
+                <div class="p-3 border bg-light"><a onclick="logout()"><img src="./images/event1.png"
+                            alt="image"></a>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-3 border bg-light"><a href="login.html" onclick="myFunction()"><img
+                <div class="p-3 border bg-light"><a onclick="logout()"><img
                             src="./images/friends1.png" alt="image"></a>
                 </div>
             </div>
             <div class="col-6">
-                <div class="p-3 border bg-light"><a href="login.html" onclick="myFunction()"><img
+                <div class="p-3 border bg-light"><a onclick="logout()"><img
                             src="./images/bookmark1.png" alt="image"></a>
                 </div>
             </div>
@@ -243,10 +243,22 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script>function myFunction() {
-                alert("Log in required.");
+    <script>
+        function logout() {
+            let text = "Log in required."
+
+            if (confirm(text) == true) {
+
                 window.location = "login.html";
-            
+                
+                return true;
+
+            } else {
+                
+                return false;
+            }
+
+
         }
     </script>
     <script src="./scripts/firebaseAPI_TEAM23.js"></script>
