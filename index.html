@@ -27,7 +27,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-------------------------------------------->
@@ -47,18 +47,175 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- the body of your page goes here -->
-    <div class="container text-center">
-        <img class="d-block mx-auto mb-4" src="./images/elmo.jpg" alt="" width="200" height="200">
-        <h1>Welcome to Taehyuk's Hiking App</h1>
-        <a href="login.html" class="btn btn-info" role="button">Log in</a>
-   </div>
+    <br><br><br>
+    <!-- <div class="container text-center">
+        <div class="box">
+            <a href="board.html">
+                <div class="boxInner">
+                    <img src="./images/board.png" alt="image" width=>
+                    <div class="titleBox">BOARD</div>
+                </div>
+            </a>
+        </div>
+        <div class="box">
+            <a href="events.html">
+                <div class="boxInner">
+                    <img src="./images/event.png" alt="image">
+                    <div class="titleBox">EVENT</div>
+                </div>
+            </a>   
+        </div>
+        <div class="box">
+            <a href="friends.html">
+                <div class="boxInner">
+                    <img src="./images/friends.png" alt="image">
+                    <div class="titleBox">FRIENDS</div>
+                </div>
+            </a>
+        </div>
+        <div class="box">
+            <a href ="bookmarks.html">
+                <div class="boxInner">
+                    <img src="./images/bookmark.png" alt="image">
+                    <div class="titleBox">BOOKMARK</div>
+                </div>
+            </a>
+        </div>
+        <a href="login.html" class="btn btn-dark btn" role="button">  Log in / Sign in</a>
+
+    </div> -->
+
+        <!-- <div class="container text-center">
+            <div class="row row-cols-2">
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" width="100" alt="image">
+                        <div class="titleBox">BOOKMARK</div>
+                    </div>
+                </a>
+            </div></div>
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" alt="image">
+                    </div>
+                </a>
+            </div></div>
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" alt="image">
+                    </div>
+                </a>
+            </div></div>
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" alt="image">
+                    </div>
+                </a>
+            </div></div>
+            </div>
+          </div> -->
+
+          <div class="container text-center">
+            
+            <div class="row g-2">
+              <div class="col-6">
+                <div class="p-3 border bg-light"> <a href ="board.html"><img src="./images/board1.png" alt="image"></a></div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 border bg-light"><a href ="events.html"><img src="./images/event1.png" alt="image"></a></div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 border bg-light"><a href ="friends.html"><img src="./images/friends1.png" alt="image"></a></div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 border bg-light"><a href ="bookmarks.html"><img src="./images/bookmark1.png" alt="image"></a></div>
+              </div>
+            </div>
+            <a href="login.html" class="btn btn-dark btn" role="button">  Log in / Sign in</a>
+
+          </div>
+
+          <!-- <div class="container text-center">
+            <div class="row row-cols-2">
+              <div class="col"> <a href ="board.html"><img src="./images/board2.png" alt="image"></a></div>
+              <div class="col"><a href ="events.html"><img src="./images/event2.png" alt="image"></a></div>
+              <div class="col"><a href ="friends.html"><img src="./images/friends2.png" alt="image"></a></div>
+              <div class="col"><a href ="bookmarks.html"><img src="./images/bookmark2.png" alt="image"></a></div>
+            </div>
+          </div> -->
+          
+
+        
+
+
+
+    <style>
+        .box {
+            float: left;
+            position: relative;
+            width: 50%;
+            padding-bottom: 50%;
+            /* border: 1px soild black; */
+        }
+
+        .boxInner {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 10px;
+            bottom: 10px;
+            overflow: hidden;
+            border: 1px solid black;
+            background-color: rgb(251, 252, 252);
+        }
+
+        .boxInner img {
+            width: 50%;
+            height: 50%;
+            margin-top: 40px
+        }
+
+        .boxInner .titleBox {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-bottom: -50px;
+            /* background: #000;
+                background: rgba(0, 0, 0, 0.5); */
+            /* color: #FFF; */
+            color: black;
+            font-size: 1.5em;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .btn{
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+    </style>
+
+
+
+    <!-- <img class="d-block mx-auto mb-4" src="./images/elmo.jpg" alt="" width="200" height="200"> -->
+    <!-- <h1>Welcome to our App</h1> -->
+    <!-- <style>
+        h1 {
+            text-align: center;
+        }
+    </style> -->
     <!-- our own footer goes here-->
+
     <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM23.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
