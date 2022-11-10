@@ -66,11 +66,12 @@
 
     <br>
 
-    <div class="d-grid gap-2 d-flex justify-content-end"> 
-        <a href="board.html" class="btn btn-info" onclick="myFunction()">Cancel</a>
-        <button class="btn btn-secondary" type="button">Save Draft</button>
-        <button type="button" class="btn btn-primary disabled" data-bs-toggle="button" autocomplete="off" aria-pressed="true" onclick ="writeReview()">Post</button>
-    </div> 
+    <div class="d-grid gap-2 d-flex justify-content-end">
+        <a class="btn btn-info" onclick="myFunction()">Cancel</a>
+        <a class="btn btn-secondary" type="button">Save Draft</a>
+        <button type="button" class="btn btn-primary disabled" data-bs-toggle="button" autocomplete="off"
+            aria-pressed="true" onclick="writeReview()">Post</button>
+    </div>
 
     <!-- our own footer goes here-->
 
@@ -79,9 +80,15 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script>function myFunction(){ 
-        alert("Changes you made may not be saved.");
-    }
+    <script>function myFunction() {
+            let text = "Changes you made may not be saved.";
+            if (confirm(text) == true) {
+                window.location = "board.html";
+                return true;
+            } else{
+                return false;
+            }
+        }
     </script>
 
     <script src="./scripts/firebaseAPI_TEAM923.js"></script>
