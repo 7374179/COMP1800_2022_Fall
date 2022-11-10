@@ -9,12 +9,3 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
-#elementID {
-    text-decoration: none;
-    color: black;
-}
-
-a:hover {
-    transform: scale(1.5);
-}
-
