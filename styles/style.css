@@ -22,3 +22,13 @@
     /* border: 1px solid black; */
     background-color: white;
 }
+
+.left {
+    text-align: left;
+    float: left;
+  }
+  
+.right {
+    text-align: right;
+    float: right;
+}
