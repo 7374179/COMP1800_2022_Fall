@@ -13,7 +13,7 @@ function getPostInfo(postCode){
                    var author = thisPost.nickname;
                    var content = thisPost.content;
                    document.querySelector('.body-title').innerHTML = title;
-                   document.querySelector('.body-author').innterHTML = "By: " + author;
+                   document.querySelector('.body-author').innerHTML = "By: " + author;
                    document.querySelector('.body-content').innerHTML = content;
                } else {
                    console.log("Query has more than one data")
