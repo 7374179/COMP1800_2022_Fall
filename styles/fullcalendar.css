@@ -35,7 +35,7 @@ html .fc,
 
 .fc-header td {
 	white-space: nowrap;
-	padding: 15px 10px 0px;
+	/* padding: 15px 10px 0px; */
 }
 
 .fc-header-left {
@@ -49,14 +49,15 @@ html .fc,
 	
 .fc-header-right {
 	width: 5%;
-	text-align: right;
+	text-align: left;
+	/* margin-left: 30px; */
 	}
 	
 .fc-header-title {
 	display: inline-block;
 	vertical-align: top;
 	margin-top: -5px;
-	margin-right: 50px;
+	margin-right: 5px;
 }
 	
 .fc-header-title h2 {
@@ -162,11 +163,13 @@ html .fc,
 	line-height: 1.9em;
 	white-space: nowrap;
 	cursor: pointer;
-	width: 10%;
+	width: 10px;
 	}
 	
 .fc-state-default { /* non-theme */
 	border: 1px solid;
+	padding: 0;
+	width: 10px;
 	}
 
 .fc-state-default.fc-corner-left { /* non-theme */
@@ -218,7 +221,7 @@ html .fc,
 	color: #ff3b30;	
 }
 .fc-button-month.fc-state-default, .fc-button-agendaWeek.fc-state-default, .fc-button-agendaDay.fc-state-default{
-    min-width: 67px;
+    min-width: 50px;
 	text-align: center;
 	transition: all 0.2s;
 	-webkit-transition: all 0.2s;
@@ -486,7 +489,7 @@ table.fc-border-separate {
 	}
 	
 .fc-agenda .fc-agenda-axis {
-	width: 50px;
+	/* width: 50px; */
 	padding: 0 4px;
 	vertical-align: middle;
 	text-align: right;
