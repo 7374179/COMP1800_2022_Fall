@@ -48,18 +48,39 @@
 
     <form>
         <div class="form-group">
-            <label for="exampleFormControlInput1">Nickname</label>
-            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Nickname">
+            <label>Title</label>
+            <input type="text" class="form-control" id="title" placeholder="title">
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlInput2">Title</label>
-            <input type="title" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+            <label>Name</label>
+            <input type="text" class="form-control" id="name" placeholder="name">
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Content</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="13"></textarea>
+            <label>School</label>
+            <input type="text" class="form-control" id="school" placeholder="school">
+        </div>
+
+        <div class="form-group">
+            <label>Catagory</label>
+            <select class="form-control" id="catagory">
+                <option>Studying</option>
+                <option>Professors</option>
+                <options>Classes</options>
+                <option>Personal life</option>
+                <options>Other</options>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Summary</label>
+            <textarea class="form-control" id="short" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Content</label>
+            <textarea class="form-control" id="content" rows="12"></textarea>
         </div>
 
     </form>
@@ -67,10 +88,10 @@
     <br>
 
     <div class="d-grid gap-2 d-flex justify-content-end">
-        <a class="btn btn-info" onclick="myFunction()">Cancel</a>
+        <a class="btn btn-info" onclick="confirmQuit()">Cancel</a>
         <a class="btn btn-secondary" type="button">Save Draft</a>
-        <button type="button" class="btn btn-primary disabled" data-bs-toggle="button" autocomplete="off"
-            aria-pressed="true" onclick="writeReview()">Post</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"
+            aria-pressed="true" onclick="confirmPost()">Post</button>
     </div>
 
     <!-- our own footer goes here-->
@@ -80,7 +101,9 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script>function myFunction() {
+    <script>
+        
+        function confirmQuit() {
             let text = "Changes you made may not be saved.";
             if (confirm(text) == true) {
                 window.location = "board.html";
@@ -91,7 +114,7 @@
         }
     </script>
 
-    <script src="./scripts/firebaseAPI_TEAM923.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM23.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/post.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
