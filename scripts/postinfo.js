@@ -10,12 +10,12 @@ function getPostInfo(postCode){
                if (size = 1) {
                    var thisPost = posts[0].data();
                    var title = thisPost.title;
-                   var catagory = thisPost.catagory;
+                   var category = thisPost.category;
                    var author = thisPost.nickname;
                    var school = thisPost.school;
                    var content = thisPost.content;
                    document.querySelector('.body-title').innerHTML = title;
-                   document.querySelector('.body-catagory').innerHTML = "Catagory: " + catagory;
+                   document.querySelector('.body-category').innerHTML = "category: " + category;
                    document.querySelector('.body-author').innerHTML = "By: " + author;
                    document.querySelector('.body-school').innerHTML = "From: " + school;
                    document.querySelector('.body-content').innerHTML = content;
