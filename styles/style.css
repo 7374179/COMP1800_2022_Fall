@@ -34,5 +34,28 @@
     float: right;
 }
 
+/* <div class="container text-center">
+            
+<div class="row g-2">
+  <div class="col-6">
+    <div class="p-3 border bg-white"> <a href ="board.html"><img src="./images/board1.png" alt="image" width="100%"></a></div>
+  </div>
+  <div class="col-6">
+    <div class="p-3 border bg-white"><a href ="events.html"><img src="./images/event1.png" alt="image" width="100%"></a></div>
+  </div>
+  <div class="col-6">
+    <div class="p-3 border bg-white"><a href ="friends.html"><img src="./images/friends1.png" alt="image" width="100%"></a></div>
+  </div>
+  <div class="col-6">
+    <div class="p-3 border bg-white"><a href ="bookmarks.html"><img src="./images/bookmark1.png" alt="image" width="100%"></a></div>
+  </div>
+</div> */
+
+@media only screen and (max-width: 700px) {
+.p-3  img {
+    width: 100%;
+}
+
+}
 
 
