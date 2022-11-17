@@ -39,6 +39,23 @@ populateInfo();
 function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
+
+    // document.getElementById('personalInfoFields').disabled = true;
+
+}
+
+function cancelEditInfo(){
+    document.getElementById('personalInfoFields').disabled = true;
+
+    let text = "Are you sure you want to cancel the change?";
+    
+    if (confirm(text) == true) {
+        window.location="main.html";
+        return true;
+        
+    } else{
+        return false;
+    }
 }
 
 function saveUserInfo() {
@@ -59,7 +76,10 @@ function saveUserInfo() {
 
     let text = "Are you sure you want to save the change?";
     if (confirm(text) == true) {
+        
         return true;
+       
+        
         
     } else{
         return false;
