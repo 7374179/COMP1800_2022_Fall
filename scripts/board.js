@@ -26,6 +26,7 @@ function populateCardsDynamically() {
         var postAuthor = doc.data().nickname;
         var postcategory = doc.data().category;
         var postPreview = doc.data().short_description;
+        console.log(postTitle, postID, postAuthor, postcategory, postPreview);
         let testPostCard = postCardTemplate.content.cloneNode(true);
         testPostCard.querySelector('.card-title').innerHTML = postTitle;
         testPostCard.querySelector('.card-author').innerHTML = postAuthor;

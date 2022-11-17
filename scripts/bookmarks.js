@@ -29,6 +29,7 @@ function getBookmarks(user) {
             var postcategory = doc.category;
             var postPreview = doc.short_description;
             let testPostCard = postBookmarkTemplate.content.cloneNode(true);
+            console.log(postTitle, postID, postAuthor, postcategory, postPreview);
             testPostCard.querySelector('.card-title').innerHTML = postTitle;
             testPostCard.querySelector('.card-author').innerHTML = postAuthor;
             testPostCard.querySelector('.card-category').innerHTML = "category: " + postcategory;
@@ -42,4 +43,8 @@ function getBookmarks(user) {
         })
       })
     })
+}
+
+function setPostInfoData(id){
+  localStorage.setItem('postID', id);
 }

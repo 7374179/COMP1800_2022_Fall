@@ -14,6 +14,7 @@ function getPostInfo(postCode){
                    var author = thisPost.nickname;
                    var school = thisPost.school;
                    var content = thisPost.content;
+                   console.log(thisPost, title, category, author, school, content);
                    document.querySelector('.body-title').innerHTML = title;
                    document.querySelector('.body-category').innerHTML = "category: " + category;
                    document.querySelector('.body-author').innerHTML = "By: " + author;
