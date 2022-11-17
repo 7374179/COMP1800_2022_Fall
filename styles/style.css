@@ -15,8 +15,10 @@
 }
 
 .btn{
-    margin-top: 50px;
-    margin-bottom: 100px;
+    /* margin-top: 50px;
+    margin-bottom: 100px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .un{
     /* border: 1px solid black; */
