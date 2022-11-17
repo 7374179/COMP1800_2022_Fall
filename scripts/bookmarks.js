@@ -26,10 +26,12 @@ function getBookmarks(user) {
             var postID = doc.code;
             // var postUpload = doc.data().uploaded;
             var postAuthor = doc.nickname;
+            var postcategory = doc.category;
             var postPreview = doc.short_description;
             let testPostCard = postBookmarkTemplate.content.cloneNode(true);
             testPostCard.querySelector('.card-title').innerHTML = postTitle;
             testPostCard.querySelector('.card-author').innerHTML = postAuthor;
+            testPostCard.querySelector('.card-category').innerHTML = "category: " + postcategory;
             // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
             testPostCard.querySelector('.card-preview').innerHTML = postPreview;
             testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);

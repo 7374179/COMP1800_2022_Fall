@@ -37,7 +37,7 @@ function postPost() {
   let content = document.getElementById("content").value;
   let school = document.getElementById("school").value;
   let short_description = document.getElementById("short").value;
-  let catagory = document.getElementById("catagory").value;
+  let category = document.getElementById("category").value;
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -52,7 +52,7 @@ function postPost() {
             content: content,
             school: school,
             short_description: short_description,
-            catagory: catagory,
+            category: category,
           }).then(()=>{
             console.log("Post has been posted!");
             alert("Post has been posted!");

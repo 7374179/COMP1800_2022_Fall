@@ -24,10 +24,12 @@ function populateCardsDynamically() {
         var postID = doc.data().code;
         // var postUpload = doc.data().uploaded;
         var postAuthor = doc.data().nickname;
+        var postcategory = doc.data().category;
         var postPreview = doc.data().short_description;
         let testPostCard = postCardTemplate.content.cloneNode(true);
         testPostCard.querySelector('.card-title').innerHTML = postTitle;
         testPostCard.querySelector('.card-author').innerHTML = postAuthor;
+        testPostCard.querySelector('.card-category').innerHTML = "category: " + postcategory;;
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
