@@ -39,7 +39,7 @@
           <a class="nav-link mx-3 text-black fs-5" href="settings1.html">Settings</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-3 text-black fs-5" href="index.html">Log out</a>
+          <a class="nav-link mx-3 text-black fs-5" onclick="logout()">Log out</a>
         </li>
       </ul>
 
@@ -47,5 +47,20 @@
 
 
   </div>
+
+  <script>
+    //------------------------------------------------
+    // Call this function when the "logout" button is clicked
+    //-------------------------------------------------
+    function logout() {
+      console.log("logging out user");
+      firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "index.html";
+      }).catch((error) => {
+        // An error happened.
+      });
+    }
+  </script>
 
 </nav>
