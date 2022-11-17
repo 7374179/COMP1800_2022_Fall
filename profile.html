@@ -53,16 +53,16 @@
     <div class="container">
 
         <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-            <h2 class="h3 mb-4 page-title">Settings2</h2>
+            <h2 class="h3 mb-4 page-title">Profile</h2>
 
             <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
                     <div class="list-inline mx-auto justify-content-center list-group list-group-horizontal" id="myList"
                         role="tablist">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list" href="settings1.html"
-                            role="tab">Settings1</a>
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="settings1.html" role="tab">Settings1</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list" href="settings2.html"
-                            role="tab">Settings2</a>
+                            role="tab">Profile</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list" href="settings3.html"
                             role="tab">Settings3</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list" href="settings4.html"
@@ -88,35 +88,66 @@
                         <div class="col-12 col-lg-10 col-xl-8 mx-auto">
 
                             <div class="my-4">
-                                <h5 class="mb-0 mt-5">idk idk ikdffff</h5>
-                                <p>ffffffffffffffffffff</p>
+                                <h5 class="mb-0 mt-5">User Profile</h5>
+                                <p>Change Personal Information</p>
                                 <hr class="my-4" />
-                                <strong class="mb-0">aqwejqkqwkmqwekmlqmlwekqwekml</strong>
-                                <p>fjklqwejklqwejklqwejklqwenkml;m</p>
+                                <!-- <strong class="mb-0">aqwejqkqwkmqwekmlqmlwekqwekml</strong>
+                                <p>fjklqwejklqwejklqwejklqwenkml;m</p> -->
                                 <div class="list-group mb-5 shadow">
                                     <div class="list-group-item">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <strong class="mb-0">iklasdjflkasjdf;lasndfl;asndlfnlasdfnlasdf</strong>
-                                                <p class="text-muted mb-0">Donec in quam sed urna bibendum tincidunt
-                                                    quis mollis mauris.</p>
+                                                <form>
+                                                    <fieldset class="mb-3" id="personalInfoFields" disabled>
+
+                                                        <div class="form-group">
+                                                            <strong class="mb-0">Name</strong>
+                                                            <input type="text" id="nameInput" class="form-control"
+                                                                placeholder="Enter your new name">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <strong class="mb-0">School</strong>
+                                                            <input type="text" id="schoolInput" class="form-control"
+                                                                placeholder="Enter your School">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label>City</label>
+                                                            <input type="text" id="cityInput" class="form-control"
+                                                                placeholder="Enter your city">
+                                                        </div>
+
+                                                    </fieldset>
+                                                    <div class="d-flex justify-content-end mt-5">
+                                                        <button type="button" class="btn btn-secondary"onclick="editUserInfo()">Edit</button>
+                                                        <span style="width: 10px"></span>
+                                                        <button type="button" class="btn btn-info" onclick="saveUserInfo()" >Save</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div class="col-auto">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                            <!-- <div class="col-auto">
                                                 <div class="custom-control custom-switch">
                                                     <input type="checkbox" class="custom-control-input" id="alert1"
                                                         checked="" />
                                                     <span class="custom-control-label"></span>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item">
+                                            </div> -->
+
+                                       
+
+                                <!-- <div class="list-group-item">
                                         <div class="row align-items-center">
                                             <div class="col">
                                                 <strong class="mb-0">Unauthorized financial activity</strong>
                                                 <p class="text-muted mb-0">Fusce lacinia elementum eros, sed vulputate
                                                     urna eleifend nec.</p>
                                             </div>
+
                                             <div class="col-auto">
                                                 <div class="custom-control custom-switch">
                                                     <input type="checkbox" class="custom-control-input" id="alert2" />
@@ -124,9 +155,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <hr class="my-4" />
+                                    </div> -->
+
+
+
+                                <!-- <hr class="my-4" />
                                 <strong class="mb-0">System</strong>
                                 <p>Please enable system alert you will get.</p>
                                 <div class="list-group mb-5 shadow">
@@ -177,7 +210,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -213,6 +251,7 @@
 <script src="./scripts/firebaseAPI_TEAM23.js"></script>
 <script src="./scripts/skeleton.js"></script>
 <script src="./scripts/settings.js"></script>
+<script src="./scripts/profile.js"></script>
 <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
