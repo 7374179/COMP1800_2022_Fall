@@ -42,13 +42,11 @@ function postPost() {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       var currentUser = db.collection("users").doc(user.uid)
-      var userID = user.uid;
 
       currentUser.get()
         .then(userDoc => {
-          var userEmail = userDoc.data().email;
           db.collection("posts").add({
-            code: "POST2",
+            code: "POST" + Math.floor(Math.random() * 100000000),
             title: title,
             nickname: nickname,
             content: content,
@@ -56,7 +54,8 @@ function postPost() {
             short_description: short_description,
             catagory: catagory,
           }).then(()=>{
-            console.log("Post has been posted!")
+            console.log("Post has been posted!");
+            alert("Post has been posted!");
             window.location = "board.html";
           })
         })
