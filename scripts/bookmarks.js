@@ -32,7 +32,7 @@ function getBookmarks(user) {
             testPostCard.querySelector('.card-author').innerHTML = postAuthor;
             // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
             testPostCard.querySelector('.card-preview').innerHTML = postPreview;
-            testPostCard.getElementById("post-sender").onclick = () => setPostInfoData(postID);
+            testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
             bookmarkCardGroup.appendChild(testPostCard);
           } else {
             console.log("Query has more than one data")
