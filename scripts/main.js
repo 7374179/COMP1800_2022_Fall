@@ -5,6 +5,7 @@ firebase.auth().onAuthStateChanged(user => {
     console.log(currentUser);
   } else {
     console.log("Critical error! You shouldn't be here!");
+    window.location = "login.html";
   }
 })
 
