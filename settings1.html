@@ -37,6 +37,11 @@
 
 </head>
 
+<style>
+    #button{
+        padding: 20px;
+    }
+</style>
 <body>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -53,20 +58,20 @@
     <div class="container">
 
         <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-            <h2 class="h3 mb-4 page-title">Settings1</h2>
+            <h2 class="h3 mb-4 page-title">Settings</h2>
 
             <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
                     <div class="list-inline mx-auto justify-content-center list-group list-group-horizontal" id="myList"
                         role="tablist">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list" href="settings1.html"
-                            role="tab">Setting1</a>
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="settings1.html" role="tab">System</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list" href="profile.html"
                             role="tab">profile</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list" href="settings3.html"
+                        <!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="settings3.html"
                             role="tab">Settings3</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list" href="settings4.html"
-                            role="tab">Settings4</a>
+                            role="tab">Settings4</a> -->
                     </div>
 
                 </li>
@@ -88,76 +93,46 @@
                         <div class="col-12 col-lg-10 col-xl-8 mx-auto">
 
                             <div class="my-4">
-                                <h5 class="mb-0 mt-5">Notifications Settings</h5>
-                                <p>Select notification you want to receive</p>
+                                <strong class="mb-0">Notification System</strong>
+                                <p>Toggle button to enable the settings</p>
                                 <hr class="my-4" />
-                                <strong class="mb-0">Security</strong>
-                                <p>Control security alert you will be notified.</p>
+                               
                                 <div class="list-group mb-5 shadow">
                                     <div class="list-group-item">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <strong class="mb-0">Unusual activity notifications</strong>
-                                                <p class="text-muted mb-0">Donec in quam sed urna bibendum tincidunt
-                                                    quis mollis mauris.</p>
+                                                <strong class="mb-0">Notifications</strong>
+                                                <p class="text-muted mb-0">Notify you by notification if there is anything special!</p>
                                             </div>
                                             <div class="col-auto">
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="alert1"
-                                                        checked="" />
-                                                    <span class="custom-control-label"></span>
+                                                <div class="form-check form-switch">
+
+                                                    <input class="form-check-input" type="checkbox" id="notifications">
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <strong class="mb-0">Unauthorized financial activity</strong>
-                                                <p class="text-muted mb-0">Fusce lacinia elementum eros, sed vulputate
-                                                    urna eleifend nec.</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="alert2" />
-                                                    <span class="custom-control-label"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <hr class="my-4" />
-                                <strong class="mb-0">System</strong>
-                                <p>Please enable system alert you will get.</p>
+                                <strong class="mb-0">Updates and features</strong>
                                 <div class="list-group mb-5 shadow">
                                     <div class="list-group-item">
                                         <div class="row align-items-center">
                                             <div class="col">
                                                 <strong class="mb-0">Notify me about new features and updates</strong>
-                                                <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit.</p>
+                                                <p class="text-muted mb-0">Notify new features by sending to your personal email!</p>
+   
                                             </div>
+
                                             <div class="col-auto">
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="alert3"
-                                                        checked="" />
-                                                    <span class="custom-control-label"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <strong class="mb-0">Notify me by email for latest news</strong>
-                                                <p class="text-muted mb-0">Nulla et tincidunt sapien. Sed eleifend
-                                                    volutpat elementum.</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="alert4"
-                                                        checked="" />
-                                                    <span class="custom-control-label"></span>
+                                                <div class="form-check form-switch">
+
+                                                    <input class="form-check-input" type="checkbox" id="notify">
+
+
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -166,8 +141,8 @@
                                         <div class="row align-items-center">
                                             <div class="col">
                                                 <strong class="mb-0">Notify me about tips on using account</strong>
-                                                <p class="text-muted mb-0">Donec in quam sed urna bibendum tincidunt
-                                                    quis mollis mauris.</p>
+                                                <p class="text-muted mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium explicabo numquam impedit quod illo nostrum </p>
+   
                                             </div>
                                             <div class="col-auto">
                                                 <div class="custom-control custom-switch">
@@ -175,15 +150,25 @@
                                                     <span class="custom-control-label"></span>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
+
                                 </div>
+                                <button type="button" class="btn btn-info" onclick="saveSettings()">Save</button>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
+        
+    </div>
+    
+        
+        
     </div>
     <br>
     <br>
@@ -191,7 +176,7 @@
     <br>
     <br>
     <br>
-    
+
 
     </div>
 
@@ -207,7 +192,7 @@
 
     <nav id="footerPlaceholder"></nav>
 
-</body> 
+</body>
 <!---------------------------------------------->
 <!-- Your own JavaScript functions go here    -->
 <!---------------------------------------------->
@@ -220,7 +205,7 @@
 </script>
 <script src="./scripts/firebaseAPI_TEAM23.js"></script>
 <script src="./scripts/skeleton.js"></script>
-<script src="./scripts/settings.js"></script>
+<script src="./scripts/settings1.js"></script>
 <!-- <script src="./scripts/script.js"></script> -->
 
 </body>

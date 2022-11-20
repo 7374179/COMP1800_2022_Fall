@@ -50,10 +50,11 @@ function cancelEditInfo(){
     let text = "Are you sure you want to cancel the change?";
     
     if (confirm(text) == true) {
-        window.location="main.html";
+        window.location = "profile.html";
         return true;
         
     } else{
+        window.location = "profile.html";
         return false;
     }
 }
@@ -77,12 +78,14 @@ function saveUserInfo() {
     let text = "Are you sure you want to save the change?";
     if (confirm(text) == true) {
         
+       
+
         return true;
        
         
         
     } else{
-        return false;
+        document.getElementById('personalInfoFields').disabled = false;
     }
   }
 
