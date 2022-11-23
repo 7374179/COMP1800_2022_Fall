@@ -72,12 +72,12 @@
           <a href="post.html" class="btn btn-primary">Add new post</a>
         </div> 
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item">All</a></li>
-          <li><a class="dropdown-item">Studying</a></li>
-          <li><a class="dropdown-item">Professors</a></li>
-          <li><a class="dropdown-item">Classes</a></li>
-          <li><a class="dropdown-item">Personal Life</a></li>
-          <li><a class="dropdown-item">Other</a></li>
+          <li><a class="dropdown-item" onclick="setFilter('all')">All</a></li>
+          <li><a class="dropdown-item" onclick="setFilter('Studying')">Studying</a></li>
+          <li><a class="dropdown-item" onclick="setFilter('Professors')">Professors</a></li>
+          <li><a class="dropdown-item" onclick="setFilter('Classes')">Classes</a></li>
+          <li><a class="dropdown-item" onclick="setFilter('Life')">Life</a></li>
+          <li><a class="dropdown-item" onclick="setFilter('Other')">Other</a></li>
         </ul>
       </div>
       <div class="container">
@@ -97,6 +97,12 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/board.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
+    <script>
+      function setFilter(filter){
+        localStorage.setItem('filter', filter);
+        window.location.reload();
+      }
+    </script>
 
 </body>
 

@@ -1,3 +1,4 @@
+var filter = localStorage.getItem("filter");
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -5,7 +6,7 @@ firebase.auth().onAuthStateChanged(user => {
         console.log(currentUser);
 
         // the following functions are always called when someone is logged in
-        populateCardsDynamically();
+        populateCardsDynamically(filter);
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -13,11 +14,12 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
-function populateCardsDynamically() {
+function populateCardsDynamically(filter) {
   let postCardTemplate = document.getElementById("postCardTemplate");
   let postCardGroup = document.getElementById("postCardGroup");
 
-  db.collection("posts").get()
+  if (filter == 'all') {
+    db.collection("posts").get()
     .then(allPosts => {
       allPosts.forEach(doc => {
         var postTitle = doc.data().title;
@@ -30,7 +32,7 @@ function populateCardsDynamically() {
         let testPostCard = postCardTemplate.content.cloneNode(true);
         testPostCard.querySelector('.card-title').innerHTML = postTitle;
         testPostCard.querySelector('.card-author').innerHTML = postAuthor;
-        testPostCard.querySelector('.card-category').innerHTML = "category: " + postcategory;;
+        testPostCard.querySelector('.card-category').innerHTML = "category: " + postcategory;
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
@@ -40,8 +42,32 @@ function populateCardsDynamically() {
       })
 
     })
-}
+  } else {
+    db.collection("posts").where("category", "==", filter).get()
+    .then(allFilteredPosts => {
+      allFilteredPosts.forEach(doc => {
+        var postTitle = doc.data().title;
+        var postID = doc.data().code;
+        // var postUpload = doc.data().uploaded;
+        var postAuthor = doc.data().nickname;
+        var postcategory = doc.data().category;
+        var postPreview = doc.data().short_description;
+        console.log(postTitle, postID, postAuthor, postcategory, postPreview);
+        let testPostCard = postCardTemplate.content.cloneNode(true);
+        testPostCard.querySelector('.card-title').innerHTML = postTitle;
+        testPostCard.querySelector('.card-author').innerHTML = postAuthor;
+        testPostCard.querySelector('.card-category').innerHTML = "category: " + postcategory;
+        // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
+        testPostCard.querySelector('.card-preview').innerHTML = postPreview;
+        testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
+        testPostCard.querySelector('i').id = 'save-' + postID;
+        testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+        postCardGroup.appendChild(testPostCard);
+      })
 
+    })
+  }
+}
 
 function setPostInfoData(id){
   localStorage.setItem('postID', id);
