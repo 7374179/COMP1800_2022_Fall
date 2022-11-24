@@ -73,16 +73,42 @@ function setPostInfoData(id){
   localStorage.setItem('postID', id);
 }
 
-function saveBookmark(postID) {
-  currentUser.set({
-          bookmarks: firebase.firestore.FieldValue.arrayUnion(postID)
-      }, {
-          merge: true
-      })
-      .then(function () {
-          console.log("bookmark has been saved for: " + currentUser);
-          var iconID = 'save-' + postID;
-          //console.log(iconID);
-          document.getElementById(iconID).innerText = 'bookmark';
-      });
+function saveBookmark(id) {
+  currentUser.get().then((userDoc) => {
+    bookmarksNow = userDoc.data().bookmarks;
+    // console.log(bookmarksNow)
+
+//check if this bookmark already existed in firestore:
+    if (bookmarksNow.includes(id)) {
+      console.log(id);
+//if it does exist, then remove it
+      currentUser
+        .update({
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(id),
+        })
+        .then(function () {
+          console.log("This bookmark is removed for" + currentUser);
+          var iconID = "save-" + id;
+          console.log(iconID);
+          document.getElementById(iconID).innerText = "bookmark_border";
+        });
+    } else {
+//if it does not exist, then add it
+      currentUser
+        .set(
+          {
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(id),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log("This bookmark is for" + currentUser);
+          var iconID = "save-" + id;
+          console.log(iconID);
+          document.getElementById(iconID).innerText = "bookmark";
+        });
+    }
+  });
 }
