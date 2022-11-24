@@ -74,6 +74,10 @@ function setPostInfoData(id){
 }
 
 function saveBookmark(postID) {
+  // firebase.auth().onAuthStateChanged(user => { 
+  //   console.log("Saving bookmark");
+  //   const n = document.querySelector("#random")
+  // })
   currentUser.set({
           bookmarks: firebase.firestore.FieldValue.arrayUnion(postID)
       }, {
@@ -85,4 +89,6 @@ function saveBookmark(postID) {
           //console.log(iconID);
           document.getElementById(iconID).innerText = 'bookmark';
       });
+
+      
 }
