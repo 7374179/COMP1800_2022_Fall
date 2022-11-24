@@ -107,7 +107,7 @@
                                             <div class="col-auto">
                                                 <div class="form-check form-switch">
 
-                                                    <input class="form-check-input" type="checkbox" id="notifications">
+                                                    <input class="form-check-input" onclick="saveSettings()" type="checkbox" id="notifications">
 
                                                 </div>
                                             </div>
@@ -129,7 +129,7 @@
                                             <div class="col-auto">
                                                 <div class="form-check form-switch">
 
-                                                    <input class="form-check-input" type="checkbox" id="notify">
+                                                    <input class="form-check-input" onclick="saveSettings1()" type="checkbox" id="notify">
 
 
                                                     
@@ -145,17 +145,17 @@
    
                                             </div>
                                             <div class="col-auto">
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="alert5" />
-                                                    <span class="custom-control-label"></span>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" onclick="saveSettings2()" type="checkbox" id="tip">
                                                 </div>
+                                                
                                             </div>
 
                                         </div>
                                     </div>
 
                                 </div>
-                                <button type="button" class="btn btn-info" onclick="saveSettings()">Save</button>
+                                <!-- <button type="button" class="btn btn-info" >Save</button> -->
                             </div>
                             
                         </div>
