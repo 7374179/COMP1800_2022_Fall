@@ -38,6 +38,12 @@ function populateCardsDynamically(filter) {
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+        currentUser.get().then( userDoc => {
+          var bookmarks = userDoc.data().bookmarks;
+          if ( bookmarks.includes(postID) ) {
+            document.getElementById('save-' + postID).innerText = 'bookmark';
+          }
+        } )
         postCardGroup.appendChild(testPostCard);
       })
 
@@ -62,6 +68,12 @@ function populateCardsDynamically(filter) {
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+        currentUser.get().then( userDoc => {
+          var bookmarks = userDoc.data().bookmarks;
+          if ( bookmarks.includes(postID) ) {
+            document.getElementById('save-' + postID).innerText = 'bookmark';
+          }
+        } )
         postCardGroup.appendChild(testPostCard);
       })
 
