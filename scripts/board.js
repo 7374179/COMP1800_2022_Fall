@@ -7,6 +7,7 @@ firebase.auth().onAuthStateChanged(user => {
 
         // the following functions are always called when someone is logged in
         populateCardsDynamically(filter);
+        setFilterButton(filter);
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -123,4 +124,18 @@ function saveBookmark(id) {
         });
     }
   });
+}
+
+function setFilterButton(filter) {
+  if (filter == 'Studying') {
+    document.querySelector('.current-option').innerHTML = "Studying";
+  } else if (filter == 'Professors') {
+    document.querySelector('.current-option').innerHTML = "Professors";
+  } else if (filter == 'Classes') {
+    document.querySelector('.current-option').innerHTML = "Classes";
+  } else if (filter == 'Life') {
+    document.querySelector('.current-option').innerHTML = "Life";
+  } else if (filter == 'Other') {
+    document.querySelector('.current-option').innerHTML = "Other";
+  }
 }
