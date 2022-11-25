@@ -37,21 +37,24 @@ function populateCardsDynamically(filter) {
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
-        testPostCard.querySelector('.sender2').onclick = () => setPostInfoData(postID);
+        testPostCard.querySelector('.editSender').onclick = () => setPostInfoDataToEdit(postID);
+        testPostCard.querySelector('.editSender').id = 'edit-' + postID;
+        testPostCard.querySelector('.deleter').id = 'delete-' + postID;
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
         currentUser.get().then( userDoc => {
           var bookmarks = userDoc.data().bookmarks;
-          if ( bookmarks.includes(postID) ) {
+          if (bookmarks.includes(postID)) {
             document.getElementById('save-' + postID).innerText = 'bookmark';
           }
           var postCodes = userDoc.data().posts;
           if (postCodes.includes(postID)) {
-            document.getElementById('delete-button').disabled = false;
-            document.getElementById('delete-button').innerHTML = "Delete";
-            document.getElementById('delete-button').onclick = () => deletePost(postID);
-            document.getElementById('edit-button').disabled = false;
-            document.getElementById('edit-button').innerHTML = "Edit";
+            console.log(postID + " is changeable");
+            document.getElementById('delete-' + postID).disabled = false;
+            document.getElementById('delete-' + postID).innerHTML = "Delete";
+            document.getElementById('delete-' + postID).onclick = () => deletePost(postID);
+            document.getElementById('edit-' + postID).disabled = false;
+            document.getElementById('edit-' + postID).innerHTML = "Edit";
           }
         } )
         postCardGroup.appendChild(testPostCard);
@@ -76,7 +79,9 @@ function populateCardsDynamically(filter) {
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
-        testPostCard.querySelector('.sender2').onclick = () => setPostInfoData(postID);
+        testPostCard.querySelector('.editSender').onclick = () => setPostInfoDataToEdit(postID);
+        testPostCard.querySelector('.editSender').id = 'edit-' + postID;
+        testPostCard.querySelector('.deleter').id = 'delete-' + postID;
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
         currentUser.get().then(userDoc => {
@@ -86,11 +91,12 @@ function populateCardsDynamically(filter) {
           }
           var postCodes = userDoc.data().posts;
           if (postCodes.includes(postID)) {
-            document.getElementById('delete-button').disabled = false;
-            document.getElementById('delete-button').innerHTML = "Delete";
-            document.getElementById('delete-button').onclick = () => deletePost(postID);
-            document.getElementById('edit-button').disabled = false;
-            document.getElementById('edit-button').innerHTML = "Edit";
+            console.log(postID + " is changeable");
+            document.getElementById('delete-' + postID).disabled = false;
+            document.getElementById('delete-' + postID).innerHTML = "Delete";
+            document.getElementById('delete-' + postID).onclick = () => deletePost(postID);
+            document.getElementById('edit-' + postID).disabled = false;
+            document.getElementById('edit-' + postID).innerHTML = "Edit";
           }
         } )
         postCardGroup.appendChild(testPostCard);
@@ -102,6 +108,11 @@ function populateCardsDynamically(filter) {
 
 function setPostInfoData(id){
   localStorage.setItem('postID', id);
+}
+
+function setPostInfoDataToEdit(id){
+  localStorage.setItem('postID', id);
+  window.location.href = "postEdit.html";
 }
 
 function saveBookmark(id) {
