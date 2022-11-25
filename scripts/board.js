@@ -7,6 +7,7 @@ firebase.auth().onAuthStateChanged(user => {
 
         // the following functions are always called when someone is logged in
         populateCardsDynamically(filter);
+        setFilterButton(filter);
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -36,12 +37,21 @@ function populateCardsDynamically(filter) {
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
+        testPostCard.querySelector('.sender2').onclick = () => setPostInfoData(postID);
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
         currentUser.get().then( userDoc => {
           var bookmarks = userDoc.data().bookmarks;
           if ( bookmarks.includes(postID) ) {
             document.getElementById('save-' + postID).innerText = 'bookmark';
+          }
+          var postCodes = userDoc.data().posts;
+          if (postCodes.includes(postID)) {
+            document.getElementById('delete-button').disabled = false;
+            document.getElementById('delete-button').innerHTML = "Delete";
+            document.getElementById('delete-button').onclick = () => deletePost(postID);
+            document.getElementById('edit-button').disabled = false;
+            document.getElementById('edit-button').innerHTML = "Edit";
           }
         } )
         postCardGroup.appendChild(testPostCard);
@@ -66,12 +76,21 @@ function populateCardsDynamically(filter) {
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
+        testPostCard.querySelector('.sender2').onclick = () => setPostInfoData(postID);
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
-        currentUser.get().then( userDoc => {
+        currentUser.get().then(userDoc => {
           var bookmarks = userDoc.data().bookmarks;
           if ( bookmarks.includes(postID) ) {
             document.getElementById('save-' + postID).innerText = 'bookmark';
+          }
+          var postCodes = userDoc.data().posts;
+          if (postCodes.includes(postID)) {
+            document.getElementById('delete-button').disabled = false;
+            document.getElementById('delete-button').innerHTML = "Delete";
+            document.getElementById('delete-button').onclick = () => deletePost(postID);
+            document.getElementById('edit-button').disabled = false;
+            document.getElementById('edit-button').innerHTML = "Edit";
           }
         } )
         postCardGroup.appendChild(testPostCard);
@@ -123,4 +142,32 @@ function saveBookmark(id) {
         });
     }
   });
+}
+
+function setFilterButton(filter) {
+  if (filter == 'Studying') {
+    document.querySelector('.current-option').innerHTML = "Studying";
+  } else if (filter == 'Professors') {
+    document.querySelector('.current-option').innerHTML = "Professors";
+  } else if (filter == 'Classes') {
+    document.querySelector('.current-option').innerHTML = "Classes";
+  } else if (filter == 'Life') {
+    document.querySelector('.current-option').innerHTML = "Life";
+  } else if (filter == 'Other') {
+    document.querySelector('.current-option').innerHTML = "Other";
+  }
+}
+
+function deletePost(id) {
+  let text = "Are you sure you want to delete this?";
+  if (confirm(text) == true) {
+    currentUser.update({
+      posts: firebase.firestore.FieldValue.arrayRemove(id),
+    }).then(function () {
+      db.collection("posts").doc(id).delete();
+      alert("Document has been deleted");
+      console.log("Document has been deleted");
+      window.location.reload();
+    });
+  }
 }
