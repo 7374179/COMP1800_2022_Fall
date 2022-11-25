@@ -61,6 +61,54 @@ function populateCardsDynamically(filter) {
       })
 
     })
+  } else if (filter == 'User') {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        db.collection("posts").where("user", "==", user.uid).get()
+        .then(allFilteredPosts => {
+          allFilteredPosts.forEach(doc => {
+            var postTitle = doc.data().title;
+            var postID = doc.data().code;
+            // var postUpload = doc.data().uploaded;
+            var postAuthor = doc.data().nickname;
+            var postcategory = doc.data().category;
+            var postPreview = doc.data().short_description;
+            console.log(postTitle, postID, postAuthor, postcategory, postPreview);
+            let testPostCard = postCardTemplate.content.cloneNode(true);
+            testPostCard.querySelector('.card-title').innerHTML = postTitle;
+            testPostCard.querySelector('.card-author').innerHTML = postAuthor;
+            testPostCard.querySelector('.card-category').innerHTML = "Category: " + postcategory;
+            // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
+            testPostCard.querySelector('.card-preview').innerHTML = postPreview;
+            testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
+            testPostCard.querySelector('.editSender').onclick = () => setPostInfoDataToEdit(postID);
+            testPostCard.querySelector('.editSender').id = 'edit-' + postID;
+            testPostCard.querySelector('.deleter').id = 'delete-' + postID;
+            testPostCard.querySelector('i').id = 'save-' + postID;
+            testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+            currentUser.get().then(userDoc => {
+              var bookmarks = userDoc.data().bookmarks;
+              if ( bookmarks.includes(postID) ) {
+                document.getElementById('save-' + postID).innerText = 'bookmark';
+              }
+              var postCodes = userDoc.data().posts;
+              if (postCodes.includes(postID)) {
+                console.log(postID + " is changeable");
+                document.getElementById('delete-' + postID).disabled = false;
+                document.getElementById('delete-' + postID).innerHTML = "Delete";
+                document.getElementById('delete-' + postID).onclick = () => deletePost(postID);
+                document.getElementById('edit-' + postID).disabled = false;
+                document.getElementById('edit-' + postID).innerHTML = "Edit";
+              }
+            } )
+            postCardGroup.appendChild(testPostCard);
+          })
+    
+        })
+      } else {
+        console.log("No one is logged in. Why did we get here?")
+      }
+    })
   } else {
     db.collection("posts").where("category", "==", filter).get()
     .then(allFilteredPosts => {

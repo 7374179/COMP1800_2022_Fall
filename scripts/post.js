@@ -55,6 +55,7 @@ function postPost() {
             school: school,
             short_description: short_description,
             category: category,
+            user: user.uid
           }).then(()=>{
             currentUser.set(
               {
