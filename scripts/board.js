@@ -37,6 +37,7 @@ function populateCardsDynamically(filter) {
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
+        testPostCard.querySelector('.sender2').onclick = () => setPostInfoData(postID);
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
         currentUser.get().then( userDoc => {
@@ -49,6 +50,8 @@ function populateCardsDynamically(filter) {
             document.getElementById('delete-button').disabled = false;
             document.getElementById('delete-button').innerHTML = "Delete";
             document.getElementById('delete-button').onclick = () => deletePost(postID);
+            document.getElementById('edit-button').disabled = false;
+            document.getElementById('edit-button').innerHTML = "Edit";
           }
         } )
         postCardGroup.appendChild(testPostCard);
@@ -73,6 +76,7 @@ function populateCardsDynamically(filter) {
         // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
         testPostCard.querySelector('.card-preview').innerHTML = postPreview;
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
+        testPostCard.querySelector('.sender2').onclick = () => setPostInfoData(postID);
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
         currentUser.get().then(userDoc => {
@@ -85,6 +89,8 @@ function populateCardsDynamically(filter) {
             document.getElementById('delete-button').disabled = false;
             document.getElementById('delete-button').innerHTML = "Delete";
             document.getElementById('delete-button').onclick = () => deletePost(postID);
+            document.getElementById('edit-button').disabled = false;
+            document.getElementById('edit-button').innerHTML = "Edit";
           }
         } )
         postCardGroup.appendChild(testPostCard);

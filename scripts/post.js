@@ -46,7 +46,7 @@ function postPost() {
       var currentUser = db.collection("users").doc(user.uid)
 
       currentUser.get()
-        .then(userDoc => {
+        .then(() => {
           db.collection("posts").doc(postCode).set({
             code: postCode,
             title: title,
