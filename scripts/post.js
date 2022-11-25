@@ -38,6 +38,8 @@ function postPost() {
   let school = document.getElementById("school").value;
   let short_description = document.getElementById("short").value;
   let category = document.getElementById("category").value;
+  let postCode = "POST" + Math.floor(Math.random() * 100000000);
+  
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -45,8 +47,8 @@ function postPost() {
 
       currentUser.get()
         .then(userDoc => {
-          db.collection("posts").add({
-            code: "POST" + Math.floor(Math.random() * 100000000),
+          db.collection("posts").doc(postCode).set({
+            code: postCode,
             title: title,
             nickname: nickname,
             content: content,
@@ -54,6 +56,14 @@ function postPost() {
             short_description: short_description,
             category: category,
           }).then(()=>{
+            currentUser.set(
+              {
+                posts: firebase.firestore.FieldValue.arrayUnion(postCode),
+              },
+              {
+                merge: true,
+              }
+            )
             console.log("Post has been posted!");
             alert("Post has been posted!");
             window.location = "board.html";

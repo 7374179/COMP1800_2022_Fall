@@ -44,6 +44,12 @@ function populateCardsDynamically(filter) {
           if ( bookmarks.includes(postID) ) {
             document.getElementById('save-' + postID).innerText = 'bookmark';
           }
+          var postCodes = userDoc.data().posts;
+          if (postCodes.includes(postID)) {
+            document.getElementById('delete-button').disabled = false;
+            document.getElementById('delete-button').innerHTML = "Delete";
+            document.getElementById('delete-button').onclick = () => deletePost(postID);
+          }
         } )
         postCardGroup.appendChild(testPostCard);
       })
@@ -69,10 +75,16 @@ function populateCardsDynamically(filter) {
         testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
-        currentUser.get().then( userDoc => {
+        currentUser.get().then(userDoc => {
           var bookmarks = userDoc.data().bookmarks;
           if ( bookmarks.includes(postID) ) {
             document.getElementById('save-' + postID).innerText = 'bookmark';
+          }
+          var postCodes = userDoc.data().posts;
+          if (postCodes.includes(postID)) {
+            document.getElementById('delete-button').disabled = false;
+            document.getElementById('delete-button').innerHTML = "Delete";
+            document.getElementById('delete-button').onclick = () => deletePost(postID);
           }
         } )
         postCardGroup.appendChild(testPostCard);
@@ -137,5 +149,19 @@ function setFilterButton(filter) {
     document.querySelector('.current-option').innerHTML = "Life";
   } else if (filter == 'Other') {
     document.querySelector('.current-option').innerHTML = "Other";
+  }
+}
+
+function deletePost(id) {
+  let text = "Are you sure you want to delete this?";
+  if (confirm(text) == true) {
+    currentUser.update({
+      posts: firebase.firestore.FieldValue.arrayRemove(id),
+    }).then(function () {
+      db.collection("posts").doc(id).delete();
+      alert("Document has been deleted");
+      console.log("Document has been deleted");
+      window.location.reload();
+    });
   }
 }
