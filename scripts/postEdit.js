@@ -48,13 +48,14 @@ function postEdit() {
             category: category,
           }).then(()=>{
             console.log("Post has been editted!");
-            alert("Post has been posted!");
+            alert("Post has been editted!");
             window.location = "board.html";
           })
         })
     } else {
       // No user is signed in.
-      console.log("No one is logged in. This shouldn't be happening.")
+      console.log("No one is logged in. This shouldn't be happening.");
+      window.location.href = "login.html";
     }
   })
 }

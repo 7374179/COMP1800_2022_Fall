@@ -72,7 +72,8 @@ function postPost() {
         })
     } else {
       // No user is signed in.
-      console.log("No one is logged in. This shouldn't be happening.")
+      console.log("No one is logged in. This shouldn't be happening.");
+      window.location.href = "login.html";
     }
   })
 }

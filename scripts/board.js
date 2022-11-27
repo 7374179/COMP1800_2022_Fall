@@ -214,7 +214,10 @@ function setFilterButton(filter) {
     document.querySelector('.current-option').innerHTML = "Life";
   } else if (filter == 'Other') {
     document.querySelector('.current-option').innerHTML = "Other";
+  } else if (filter == 'User') {
+    document.querySelector('.current-option').innerHTML = "My posts";
   }
+  console.log("Filter set to " + filter);
 }
 
 function deletePost(id) {
@@ -225,7 +228,7 @@ function deletePost(id) {
     }).then(function () {
       db.collection("posts").doc(id).delete();
       alert("Document has been deleted");
-      console.log("Document has been deleted");
+      console.log(id + " has been deleted");
       window.location.reload();
     });
   }
