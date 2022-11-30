@@ -49,7 +49,7 @@ function postEdit() {
           }).then(()=>{
             console.log("Post has been editted!");
             alert("Post has been editted!");
-            window.location = "board.html";
+            history.back();
           })
         })
     } else {

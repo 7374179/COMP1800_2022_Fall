@@ -43,12 +43,24 @@ function getBookmarks(user) {
             // testPostCard.querySelector('.card-uploaded').innerHTML = postUpload;
             testPostCard.querySelector('.card-preview').innerHTML = postPreview;
             testPostCard.querySelector('.sender').onclick = () => setPostInfoData(postID);
+            testPostCard.querySelector('.editSender').onclick = () => setPostInfoDataToEdit(postID);
+            testPostCard.querySelector('.editSender').id = 'edit-' + postID;
+            testPostCard.querySelector('.deleter').id = 'delete-' + postID;    
             testPostCard.querySelector('i').id = 'save-' + postID;
             testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
             currentUser.get().then( userDoc => {
               var bookmarks = userDoc.data().bookmarks;
               if ( bookmarks.includes(postID) ) {
                 document.getElementById('save-' + postID).innerText = 'bookmark';
+              }
+              var postCodes = userDoc.data().posts;
+              if (postCodes.includes(postID)) {
+                console.log(postID + " is changeable");
+                document.getElementById('delete-' + postID).disabled = false;
+                document.getElementById('delete-' + postID).innerHTML = "Delete";
+                document.getElementById('delete-' + postID).onclick = () => deletePost(postID);
+                document.getElementById('edit-' + postID).disabled = false;
+                document.getElementById('edit-' + postID).innerHTML = "Edit";
               }
             } )
             bookmarkCardGroup.appendChild(testPostCard);
@@ -62,6 +74,11 @@ function getBookmarks(user) {
 
 function setPostInfoData(id){
   localStorage.setItem('postID', id);
+}
+
+function setPostInfoDataToEdit(id){
+  localStorage.setItem('postID', id);
+  window.location.href = "postEdit.html";
 }
 
 function saveBookmark(id) {
@@ -102,4 +119,18 @@ function saveBookmark(id) {
         });
     }
   });
+}
+
+function deletePost(id) {
+  let text = "Are you sure you want to delete this?";
+  if (confirm(text) == true) {
+    currentUser.update({
+      posts: firebase.firestore.FieldValue.arrayRemove(id),
+    }).then(function () {
+      db.collection("posts").doc(id).delete();
+      alert("Post has been deleted");
+      console.log(id + " has been deleted");
+      window.location.reload();
+    });
+  }
 }
