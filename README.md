@@ -1,21 +1,22 @@
 # Project Title or Name
+Teachering
 
 ## 1. Project Description
-This browser based web application to ... 
+This browser based web application to help students who needs help in school in order to improve their school lifestyle.
 
 
 ## 2. Names of Contributors
 These are the members in our team: 
-* ...
-* ...
-* ...
+* Taehyuk Chung
+* Tae Hyung Lee
+* Troy Calaquian
 	
 ## 3. Technologies Used
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
-* ...
+* firebase
 
 ## 4. Complete setup/installion/usage
 Here are the steps ...
@@ -31,9 +32,9 @@ Here are some known bugs:
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
-* ...
-* ...
+* How to update calendar
+* friends function
+* search engine
 	
 ## 7. Contents of Folder
 Content of the project folder:
