@@ -227,7 +227,7 @@ function deletePost(id) {
       posts: firebase.firestore.FieldValue.arrayRemove(id),
     }).then(function () {
       db.collection("posts").doc(id).delete();
-      alert("Document has been deleted");
+      alert("Post has been deleted");
       console.log(id + " has been deleted");
       window.location.reload();
     });
