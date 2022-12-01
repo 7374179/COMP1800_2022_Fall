@@ -20,7 +20,7 @@ function populateCardsDynamically(filter) {
   let postCardGroup = document.getElementById("postCardGroup");
 
   if (filter == 'all') {
-    db.collection("posts").get()
+    db.collection("posts").orderBy("code", "desc").get()
     .then(allPosts => {
       allPosts.forEach(doc => {
         var postTitle = doc.data().title;
@@ -64,7 +64,7 @@ function populateCardsDynamically(filter) {
   } else if (filter == 'User') {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        db.collection("posts").where("user", "==", user.uid).get()
+        db.collection("posts").where("user", "==", user.uid).orderBy("code", "desc").get()
         .then(allFilteredPosts => {
           allFilteredPosts.forEach(doc => {
             var postTitle = doc.data().title;
@@ -110,7 +110,7 @@ function populateCardsDynamically(filter) {
       }
     })
   } else {
-    db.collection("posts").where("category", "==", filter).get()
+    db.collection("posts").where("category", "==", filter).orderBy("code", "desc").get()
     .then(allFilteredPosts => {
       allFilteredPosts.forEach(doc => {
         var postTitle = doc.data().title;
