@@ -41,9 +41,30 @@ Content of the project folder:
 
 ```
  Top level of project folder: 
-├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+├── .firebaserc              # Firebase stuff
+├── .gitignore               # Files to ignore when pushing
+├── 404.html
+├── about.html
+├── about1.html
+├── board.html
+├── bookmarks.html
+├── events.html
+├── firebase.json
+├── firestore.indexes.json   # firebase stuff
+├── firestore.rules          # firebase stiff
+├── index.html
+├── login.html
+├── main.html
+├── post.html
+├── postEdit.html
+├── postinfo.html
+├── profile.html
+├── README.md                # info on this project (what you're on right now!)
+├── settings1.html
+├── settings3.html
+├── settings4.html
+├── storage.rules            # firebase stuff
+└── template.html            # template for all pages
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
@@ -71,7 +92,7 @@ It has the following subfolders and files:
     authentication.js
     board.js
     bookmarks.js
-    firebaseAPI_template copy.js
+    firebaseAPI_template.js
     fullcalendar.js
     jquery-1.10.2.js
     jquery-ui.custom.min.js
@@ -85,10 +106,15 @@ It has the following subfolders and files:
     settings1.js
     skeleton.js
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    fullcalendar.css
+    fullcalendar.print.css
+    style.css
+├── text
+    footer.html
+    nav.html
 
 Firebase hosting files: 
-├── .firebaserc...
+├── .firebaserc
 
 
 ```
