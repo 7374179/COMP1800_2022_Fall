@@ -45,6 +45,14 @@ function postPost() {
     size = snap.size; 
     var postCode = "POST" + (size + 1);
 
+    db.collection("posts").where("code", "==", postCode).get().then(snap => {
+      if (snap.size = 1) {
+        let queryData = snap.docs;
+        let doc = queryData[0].data();
+        postCode = doc.code + "a";
+      }
+    });
+
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         var currentUser = db.collection("users").doc(user.uid)
