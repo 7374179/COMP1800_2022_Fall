@@ -38,43 +38,45 @@ function postPost() {
   let school = document.getElementById("school").value;
   let short_description = document.getElementById("short").value;
   let category = document.getElementById("category").value;
-  let postCode = "POST" + Math.floor(Math.random() * 100000000);
   
-
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      var currentUser = db.collection("users").doc(user.uid)
-
-      currentUser.get()
-        .then(() => {
-          db.collection("posts").doc(postCode).set({
-            code: postCode,
-            title: title,
-            nickname: nickname,
-            content: content,
-            school: school,
-            short_description: short_description,
-            category: category,
-            user: user.uid
-          }).then(()=>{
-            currentUser.set(
-              {
-                posts: firebase.firestore.FieldValue.arrayUnion(postCode),
-              },
-              {
-                merge: true,
-              }
-            )
-            console.log("Post has been posted!");
-            alert("Post has been posted!");
-            window.location = "board.html";
+  db.collection("posts").get().then(snap => {
+    size = snap.size; 
+    let postCode = "POST" + (size + 1);
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        var currentUser = db.collection("users").doc(user.uid)
+  
+        currentUser.get()
+          .then(() => {
+            db.collection("posts").doc(postCode).set({
+              code: postCode,
+              title: title,
+              nickname: nickname,
+              content: content,
+              school: school,
+              short_description: short_description,
+              category: category,
+              user: user.uid
+            }).then(()=>{
+              currentUser.set(
+                {
+                  posts: firebase.firestore.FieldValue.arrayUnion(postCode),
+                },
+                {
+                  merge: true,
+                }
+              )
+              console.log("Post has been posted!");
+              alert("Post has been posted!");
+              window.location = "board.html";
+            })
           })
-        })
-    } else {
-      // No user is signed in.
-      console.log("No one is logged in. This shouldn't be happening.");
-      window.location.href = "login.html";
-    }
+      } else {
+        // No user is signed in.
+        console.log("No one is logged in. This shouldn't be happening.");
+        window.location.href = "login.html";
+      }
+    })
   })
 }
 
