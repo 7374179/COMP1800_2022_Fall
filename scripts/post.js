@@ -43,7 +43,8 @@ function postPost() {
   
   db.collection("posts").get().then(snap => {
     size = snap.size; 
-    let postCode = "POST" + (size + 1);
+    var postCode = "POST" + (size + 1);
+
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         var currentUser = db.collection("users").doc(user.uid)
