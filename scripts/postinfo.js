@@ -18,7 +18,7 @@ function getPostInfo(postCode){
                    var content = thisPost.content;
                    console.log(thisPost, title, category, author, school, content);
                    document.querySelector('.body-title').innerHTML = title;
-                   document.querySelector('.body-category').innerHTML = "category: " + category;
+                   document.querySelector('.body-category').innerHTML = "Category: " + category;
                    document.querySelector('.body-author').innerHTML = "By: " + author;
                    document.querySelector('.body-school').innerHTML = "From: " + school;
                    document.querySelector('.body-content').innerHTML = content;
