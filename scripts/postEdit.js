@@ -1,5 +1,7 @@
+// Grabs the current postID
 var postID = localStorage.getItem("postID");
 
+// Populates the form with the current values of the post
 function populateInfo() {
   db.collection("posts").doc(postID).get().then(postDoc => {
     //get the data fields of the user
@@ -23,6 +25,7 @@ function populateInfo() {
 //call the function to run it 
 populateInfo();
 
+// Updates the values of the post based on user input
 function postEdit() {
   console.log("publishing post")
   let title = document.getElementById("title").value;
@@ -60,6 +63,7 @@ function postEdit() {
   })
 }
 
+// Confirms the edits with the user
 function confirmEdit() {
   let text = "Do you wish to change this post with its current edits?";
   if (confirm(text) == true) {

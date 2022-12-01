@@ -1,3 +1,4 @@
+// Checks whether the user is signed in
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -13,6 +14,7 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
+// Grabs the users bookmarks and populates the cards
 function getBookmarks(user) {
   db.collection("users").doc(user.uid).get()
     .then(userDoc => {
@@ -48,6 +50,7 @@ function getBookmarks(user) {
             testPostCard.querySelector('.deleter').id = 'delete-' + postID;    
             testPostCard.querySelector('i').id = 'save-' + postID;
             testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+            // If the post is in the user's bookmark or the user made the post, allow them to edit and delete
             currentUser.get().then( userDoc => {
               var bookmarks = userDoc.data().bookmarks;
               if ( bookmarks.includes(postID) ) {
@@ -72,15 +75,18 @@ function getBookmarks(user) {
     })
 }
 
+// Stores the current postID to the browser
 function setPostInfoData(id){
   localStorage.setItem('postID', id);
 }
 
+// Stores the current postID to the browser, then goes to the edit page
 function setPostInfoDataToEdit(id){
   localStorage.setItem('postID', id);
   window.location.href = "postEdit.html";
 }
 
+// Function that checks whether the bookmark is saved to the user and changes the icon if it is
 function saveBookmark(id) {
   currentUser.get().then((userDoc) => {
     bookmarksNow = userDoc.data().bookmarks;
@@ -121,6 +127,7 @@ function saveBookmark(id) {
   });
 }
 
+// Allows the user to delete a post, usually their own
 function deletePost(id) {
   let text = "Are you sure you want to delete this?";
   if (confirm(text) == true) {

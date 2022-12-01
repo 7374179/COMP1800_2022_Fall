@@ -46,6 +46,7 @@
     <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
 
+    <!-- Form that the user fills out for their post. -->
     <form>
         <div class="form-group">
             <label>Title</label>
@@ -83,6 +84,7 @@
             <textarea class="form-control" id="content" rows="8"></textarea>
         </div>
 
+        <!-- Confirm and cancel buttons. -->
         <div class="d-grid gap-2 d-flex justify-content-end">
             <a class="btn btn-info" onclick="confirmQuit()">Cancel</a>
             <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"
@@ -103,6 +105,7 @@
     <!---------------------------------------------->
     <script>
         
+        // Confirms whether the user wants leave the page
         function confirmQuit() {
             let text = "Changes you made may not be saved.";
             if (confirm(text) == true) {

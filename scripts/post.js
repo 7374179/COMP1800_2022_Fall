@@ -1,3 +1,4 @@
+// First checks whether there is a user signed up, then populates some of the values
 function populateInfo() {
   firebase.auth().onAuthStateChanged(user => {
       // Check if user is signed in:
@@ -30,6 +31,7 @@ function populateInfo() {
 //call the function to run it 
 populateInfo();
 
+// Grabs the values of the fields, then creates a post document and sets it
 function postPost() {
   console.log("publishing post")
   let title = document.getElementById("title").value;
@@ -80,6 +82,7 @@ function postPost() {
   })
 }
 
+// Confirms whether the user wants to commit to their post
 function confirmPost() {
   let text = "Are you sure you want to post this?";
   if (confirm(text) == true) {

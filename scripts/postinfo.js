@@ -1,5 +1,7 @@
+// Grabs the current postID
 var postID = localStorage.getItem("postID");
 
+// Looks for the exact post, then populates the page with the correct details
 function getPostInfo(postCode){
     db.collection("posts").where("code", "==", postCode)
            .get()

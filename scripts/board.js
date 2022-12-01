@@ -1,3 +1,4 @@
+// Gets current filter, checks whether user is logged in or not
 var filter = localStorage.getItem("filter");
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
@@ -15,10 +16,11 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
+// Gets post data and depending on the filter, gives that data
 function populateCardsDynamically(filter) {
   let postCardTemplate = document.getElementById("postCardTemplate");
   let postCardGroup = document.getElementById("postCardGroup");
-
+  // Shows all the posts
   if (filter == 'all') {
     db.collection("posts").orderBy("code", "desc").get()
     .then(allPosts => {
@@ -42,6 +44,7 @@ function populateCardsDynamically(filter) {
         testPostCard.querySelector('.deleter').id = 'delete-' + postID;
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+        // If the post is in the user's bookmark or the user made the post, allow them to edit and delete
         currentUser.get().then( userDoc => {
           var bookmarks = userDoc.data().bookmarks;
           if (bookmarks.includes(postID)) {
@@ -61,6 +64,7 @@ function populateCardsDynamically(filter) {
       })
 
     })
+  // If it's the user, checks whether the user uid matches with the post
   } else if (filter == 'User') {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -86,6 +90,7 @@ function populateCardsDynamically(filter) {
             testPostCard.querySelector('.deleter').id = 'delete-' + postID;
             testPostCard.querySelector('i').id = 'save-' + postID;
             testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+            // If the post is in the user's bookmark or the user made the post, allow them to edit and delete
             currentUser.get().then(userDoc => {
               var bookmarks = userDoc.data().bookmarks;
               if ( bookmarks.includes(postID) ) {
@@ -109,6 +114,7 @@ function populateCardsDynamically(filter) {
         console.log("No one is logged in. Why did we get here?")
       }
     })
+  // Checks whether the post's category is the same as the current filter
   } else {
     db.collection("posts").where("category", "==", filter).orderBy("code", "desc").get()
     .then(allFilteredPosts => {
@@ -132,6 +138,7 @@ function populateCardsDynamically(filter) {
         testPostCard.querySelector('.deleter').id = 'delete-' + postID;
         testPostCard.querySelector('i').id = 'save-' + postID;
         testPostCard.querySelector('i').onclick = () => saveBookmark(postID);
+        // If the post is in the user's bookmark or the user made the post, allow them to edit and delete
         currentUser.get().then(userDoc => {
           var bookmarks = userDoc.data().bookmarks;
           if ( bookmarks.includes(postID) ) {
@@ -154,15 +161,18 @@ function populateCardsDynamically(filter) {
   }
 }
 
+// Stores the current postID to the browser
 function setPostInfoData(id){
   localStorage.setItem('postID', id);
 }
 
+// Stores the current postID to the browser, then goes to the edit page
 function setPostInfoDataToEdit(id){
   localStorage.setItem('postID', id);
   window.location.href = "postEdit.html";
 }
 
+// Function that checks whether the bookmark is saved to the user and changes the icon if it is
 function saveBookmark(id) {
   currentUser.get().then((userDoc) => {
     bookmarksNow = userDoc.data().bookmarks;
@@ -203,6 +213,7 @@ function saveBookmark(id) {
   });
 }
 
+// Changes the text inside the filter button
 function setFilterButton(filter) {
   if (filter == 'Studying') {
     document.querySelector('.current-option').innerHTML = "Studying";
@@ -220,6 +231,7 @@ function setFilterButton(filter) {
   console.log("Filter set to " + filter);
 }
 
+// Allows the user to delete a post, usually their own
 function deletePost(id) {
   let text = "Are you sure you want to delete this?";
   if (confirm(text) == true) {
