@@ -10,6 +10,7 @@ function getPostInfo(postCode){
                posts = queryPost.docs;   
 
                if (size = 1) {
+                    // Grabs the post, then fills in the HTML page based on the data
                    var thisPost = posts[0].data();
                    var title = thisPost.title;
                    var category = thisPost.category;
@@ -23,6 +24,7 @@ function getPostInfo(postCode){
                    document.querySelector('.body-school').innerHTML = "From: " + school;
                    document.querySelector('.body-content').innerHTML = content;
                } else {
+                    // HOPEFULLY rng doesn't give the post the same ID. If not, uh....
                    console.log("Query has more than one data")
                }
            })
@@ -30,4 +32,5 @@ function getPostInfo(postCode){
                console.log("Error getting documents: ", error);
            });
 }
+// Function call
 getPostInfo(postID);

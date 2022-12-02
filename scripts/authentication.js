@@ -14,6 +14,7 @@ var uiConfig = {
             name: user.displayName,
             email: user.email,                        
 						school: "BCIT",  
+            // Absolutely necessary to allow user to properly access board page
             posts: firebase.firestore.FieldValue.arrayUnion(),
             bookmarks: firebase.firestore.FieldValue.arrayRemove()
           }).then(function () {

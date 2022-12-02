@@ -22,6 +22,7 @@ function populateCardsDynamically(filter) {
   let postCardGroup = document.getElementById("postCardGroup");
   // Shows all the posts
   if (filter == 'all') {
+    // Sorts the posts by date, latest first. This happens for all filter settings
     db.collection("posts").orderBy("date", "desc").get()
     .then(allPosts => {
       allPosts.forEach(doc => {
@@ -235,6 +236,8 @@ function setFilterButton(filter) {
 function deletePost(id) {
   let text = "Are you sure you want to delete this?";
   if (confirm(text) == true) {
+    deleteBookmark(id);
+    // Removes the postID from their post array and bookmark if there
     currentUser.update({
       posts: firebase.firestore.FieldValue.arrayRemove(id),
     }).then(function () {
@@ -244,4 +247,27 @@ function deletePost(id) {
       window.location.reload();
     });
   }
+}
+
+// saveBookmark, but only deletes the bookmark from the user array
+function deleteBookmark(id) {
+  currentUser.get().then((userDoc) => {
+    bookmarksNow = userDoc.data().bookmarks;
+    // console.log(bookmarksNow)
+
+//check if this bookmark already existed in firestore:
+    if (bookmarksNow.includes(id)) {
+      console.log(id);
+//if it does exist, then remove it
+      currentUser
+        .update({
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(id),
+         })
+        .then(function () {
+          console.log("This bookmark is removed for" + currentUser);
+          var iconID = "save-" + id;
+          console.log(iconID);
+        });
+    }
+  });
 }

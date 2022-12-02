@@ -40,6 +40,7 @@ function postPost() {
   let school = document.getElementById("school").value;
   let short_description = document.getElementById("short").value;
   let category = document.getElementById("category").value;
+  // Determines the postID. Note that it can produce the same value as another post, but VERY VERY unlikely
   let postCode = "POST" + (Math.random() * 100000000000000);
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -47,6 +48,7 @@ function postPost() {
   
       currentUser.get()
         .then(() => {
+          // Creates a new post, then uses the values from earlier to fill it up
           db.collection("posts").doc(postCode).set({
             code: postCode,
             title: title,
@@ -56,8 +58,10 @@ function postPost() {
             short_description: short_description,
             category: category,
             user: user.uid,
+            // Date that is used to sort posts
             date: new Date()
           }).then(()=>{
+            // Adds to the user's post list, which is used to determine if they can delete or update a post
             currentUser.set(
               {
                 posts: firebase.firestore.FieldValue.arrayUnion(postCode),

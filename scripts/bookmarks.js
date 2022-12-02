@@ -68,7 +68,7 @@ function getBookmarks(user) {
             } )
             bookmarkCardGroup.appendChild(testPostCard);
           } else {
-            console.log("Query has more than one data")
+            console.log("Query either has none or has more than one data")
           }
         })
       })
@@ -131,6 +131,7 @@ function saveBookmark(id) {
 function deletePost(id) {
   let text = "Are you sure you want to delete this?";
   if (confirm(text) == true) {
+    deleteBookmark(id);
     currentUser.update({
       posts: firebase.firestore.FieldValue.arrayRemove(id),
     }).then(function () {
@@ -140,4 +141,26 @@ function deletePost(id) {
       window.location.reload();
     });
   }
+}
+
+function deleteBookmark(id) {
+  currentUser.get().then((userDoc) => {
+    bookmarksNow = userDoc.data().bookmarks;
+    // console.log(bookmarksNow)
+
+//check if this bookmark already existed in firestore:
+    if (bookmarksNow.includes(id)) {
+      console.log(id);
+//if it does exist, then remove it
+      currentUser
+        .update({
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(id),
+         })
+        .then(function () {
+          console.log("This bookmark is removed for" + currentUser);
+          var iconID = "save-" + id;
+          console.log(iconID);
+        });
+    }
+  });
 }
