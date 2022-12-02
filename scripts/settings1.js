@@ -1,3 +1,4 @@
+// save the setting when stitch turned on for setting
 function saveSettings() {
     firebase.auth().onAuthStateChanged(user => {   //find out who's logged in
         console.log("in save function");
@@ -13,7 +14,7 @@ function saveSettings() {
         
     })
 }
-
+// save the setting when stitch turned on for setting1
 function saveSettings1() {
     firebase.auth().onAuthStateChanged(user => {   //find out who's logged in
         console.log("in save function notify");
@@ -27,7 +28,7 @@ function saveSettings1() {
         })
     })
 }
-
+// save the setting wehn switch turned on for settings2
 function saveSettings2() {
     firebase.auth().onAuthStateChanged(user => {   //find out who's logged in
         console.log("in save function tips");
@@ -42,6 +43,7 @@ function saveSettings2() {
     })
 }
 
+// show settings
 function showSettings() {
     firebase.auth().onAuthStateChanged(user => {
             db.collection("users").doc(user.uid)

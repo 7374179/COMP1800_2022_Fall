@@ -61,8 +61,6 @@ Content of the project folder:
 ├── profile.html
 ├── README.md                # info on this project (what you're on right now!)
 ├── settings1.html
-├── settings3.html
-├── settings4.html
 ├── storage.rules            # firebase stuff
 └── template.html            # template for all pages
 
@@ -102,7 +100,6 @@ It has the following subfolders and files:
     postinfo.js
     profile.js
     script.js
-    settings.js
     settings1.js
     skeleton.js
 ├── styles                   # Folder for styles

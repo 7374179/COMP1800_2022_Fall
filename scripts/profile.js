@@ -1,5 +1,6 @@
 var currentUser
 
+// show profile
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
