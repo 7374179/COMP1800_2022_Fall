@@ -40,54 +40,42 @@ function postPost() {
   let school = document.getElementById("school").value;
   let short_description = document.getElementById("short").value;
   let category = document.getElementById("category").value;
+  let postCode = "POST" + (Math.random() * 100000000000000);
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      var currentUser = db.collection("users").doc(user.uid)
   
-  db.collection("posts").get().then(snap => {
-    size = snap.size; 
-    var postCode = "POST" + (size + 1);
-
-    db.collection("posts").where("code", "==", postCode).get().then(snap => {
-      if (snap.size = 1) {
-        let queryData = snap.docs;
-        let doc = queryData[0].data();
-        postCode = doc.code + "a";
-      }
-    });
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        var currentUser = db.collection("users").doc(user.uid)
-  
-        currentUser.get()
-          .then(() => {
-            db.collection("posts").doc(postCode).set({
-              code: postCode,
-              title: title,
-              nickname: nickname,
-              content: content,
-              school: school,
-              short_description: short_description,
-              category: category,
-              user: user.uid
-            }).then(()=>{
-              currentUser.set(
-                {
-                  posts: firebase.firestore.FieldValue.arrayUnion(postCode),
-                },
-                {
-                  merge: true,
-                }
-              )
-              console.log("Post has been posted!");
-              alert("Post has been posted!");
-              window.location = "board.html";
-            })
+      currentUser.get()
+        .then(() => {
+          db.collection("posts").doc(postCode).set({
+            code: postCode,
+            title: title,
+            nickname: nickname,
+            content: content,
+            school: school,
+            short_description: short_description,
+            category: category,
+            user: user.uid,
+            date: new Date()
+          }).then(()=>{
+            currentUser.set(
+              {
+                posts: firebase.firestore.FieldValue.arrayUnion(postCode),
+              },
+              {
+                merge: true,
+              }
+            )
+            console.log("Post has been posted!");
+            alert("Post has been posted!");
+            window.location = "board.html";
           })
-      } else {
-        // No user is signed in.
-        console.log("No one is logged in. This shouldn't be happening.");
-        window.location.href = "login.html";
-      }
-    })
+        })
+    } else {
+      // No user is signed in.
+      console.log("No one is logged in. This shouldn't be happening.");
+      window.location.href = "login.html";
+    }
   })
 }
 
@@ -95,9 +83,9 @@ function postPost() {
 function confirmPost() {
   let text = "Are you sure you want to post this?";
   if (confirm(text) == true) {
-      postPost()
+      postPost();
       return true;
-  } else{
+  } else {
       return false;
   }
 }

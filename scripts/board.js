@@ -22,7 +22,7 @@ function populateCardsDynamically(filter) {
   let postCardGroup = document.getElementById("postCardGroup");
   // Shows all the posts
   if (filter == 'all') {
-    db.collection("posts").orderBy("code", "desc").get()
+    db.collection("posts").orderBy("date", "desc").get()
     .then(allPosts => {
       allPosts.forEach(doc => {
         var postTitle = doc.data().title;
@@ -68,7 +68,7 @@ function populateCardsDynamically(filter) {
   } else if (filter == 'User') {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        db.collection("posts").where("user", "==", user.uid).orderBy("code", "desc").get()
+        db.collection("posts").where("user", "==", user.uid).orderBy("date", "desc").get()
         .then(allFilteredPosts => {
           allFilteredPosts.forEach(doc => {
             var postTitle = doc.data().title;
@@ -116,7 +116,7 @@ function populateCardsDynamically(filter) {
     })
   // Checks whether the post's category is the same as the current filter
   } else {
-    db.collection("posts").where("category", "==", filter).orderBy("code", "desc").get()
+    db.collection("posts").where("category", "==", filter).orderBy("date", "desc").get()
     .then(allFilteredPosts => {
       allFilteredPosts.forEach(doc => {
         var postTitle = doc.data().title;
