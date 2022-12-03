@@ -20,9 +20,8 @@ Technologies used for this project:
 
 ## 4. Complete setup/installion/usage
 Here are the steps ...
-* ...
-* ...
-* ...
+* If needed, install firebase API, as the key wasn't made public
+* launch index.html
 
 ## 5. Known Bugs
 Here are some known bugs:
@@ -112,7 +111,10 @@ It has the following subfolders and files:
 
 Firebase hosting files: 
 ├── .firebaserc
-
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
+└── storage.rules
 
 ```
 

@@ -41,7 +41,7 @@ function postPost() {
   let short_description = document.getElementById("short").value;
   let category = document.getElementById("category").value;
   // Determines the postID. Note that it can produce the same value as another post, but VERY VERY unlikely
-  let postCode = "POST" + (Math.random() * 100000000000000);
+  let postCode = "POST" + (Math.random() * 1000000000000);
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       var currentUser = db.collection("users").doc(user.uid)
