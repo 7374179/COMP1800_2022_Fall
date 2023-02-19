@@ -1,0 +1,63 @@
+
+/*-------------------------------------
+ * customize material design icon sizes 
+ *-------------------------------------
+ */
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+
+.bg {
+    background-color: black;
+}
+
+.btn{
+    /* margin-top: 50px;
+    margin-bottom: 100px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.un{
+    /* border: 1px solid black; */
+    background-color: white;
+}
+
+
+.left {
+    text-align: left;
+    float: left;
+  }
+  
+.right {
+    text-align: right;
+    float: right;
+}
+
+/* <div class="container text-center">
+            
+<div class="row g-2">
+  <div class="col-6">
+    <div class="p-3 border bg-white"> <a href ="board.html"><img src="./images/board1.png" alt="image" width="100%"></a></div>
+  </div>
+  <div class="col-6">
+    <div class="p-3 border bg-white"><a href ="events.html"><img src="./images/event1.png" alt="image" width="100%"></a></div>
+  </div>
+  <div class="col-6">
+    <div class="p-3 border bg-white"><a href ="friends.html"><img src="./images/friends1.png" alt="image" width="100%"></a></div>
+  </div>
+  <div class="col-6">
+    <div class="p-3 border bg-white"><a href ="bookmarks.html"><img src="./images/bookmark1.png" alt="image" width="100%"></a></div>
+  </div>
+</div> */
+
+@media only screen and (max-width: 700px) {
+.p-3  img {
+    width: 100%;
+}
+
+}
+
+

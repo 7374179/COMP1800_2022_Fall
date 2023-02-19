@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BBY23</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!------------------------>
+    <!-- Required meta tags -->
+    <!------------------------>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+
+</head>
+
+<body>
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- our own navbar goes here -->
+    <nav id="navbarPlaceholder"></nav>
+
+
+    <br>
+
+
+
+    <div class="container">
+
+        <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+            <h2 class="h3 mb-4 page-title">Profile</h2>
+
+            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <div class="list-inline mx-auto justify-content-center list-group list-group-horizontal" id="myList"
+                        role="tablist">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="settings1.html" role="tab">System</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="settings2.html"
+                            role="tab">Profile</a>
+                        <!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="settings3.html"
+                            role="tab">Settings3</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="settings4.html"
+                            role="tab">Settings4</a> -->
+                    </div>
+
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+
+    </div>
+
+
+    <div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+
+                            <div class="my-4">
+                                <h5 class="mb-0 mt-5">User Profile</h5>
+                                <p>Change Personal Information</p>
+                                <hr class="my-4" />
+                                <div class="list-group mb-5 shadow">
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <form>
+                                                    <fieldset class="mb-3" id="personalInfoFields" disabled>
+
+                                                        <div class="form-group">
+                                                            <strong class="mb-0">Name</strong>
+                                                            <input type="text" id="nameInput" class="form-control"
+                                                                placeholder="Enter your new name">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <strong class="mb-0">School</strong>
+                                                            <input type="text" id="schoolInput" class="form-control"
+                                                                placeholder="Enter your School">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label>City</label>
+                                                            <input type="text" id="cityInput" class="form-control"
+                                                                placeholder="Enter your city">
+                                                        </div>
+
+                                                    </fieldset>
+                                                    <div class="d-flex justify-content-end mt-5">
+                                                        <button type="button" class="btn btn-warning" onclick="cancelEditInfo()">Cancel</button>
+                                                        <span style="width: 10px"></span>
+                                                        <button type="button" class="btn btn-secondary"onclick="editUserInfo()">Edit</button>
+                                                        <span style="width: 10px"></span>
+                                                        <button type="button" class="btn btn-info" onclick="saveUserInfo()" >Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                          
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- Presuming that the whole page just consists of the calendar, we'd insert it here. Pretty sure this will involve backend stuff-->
+
+
+    <!-- our own footer goes here-->
+
+    <nav id="footerPlaceholder"></nav>
+
+</body>
+<!---------------------------------------------->
+<!-- Your own JavaScript functions go here    -->
+<!---------------------------------------------->
+
+<script>
+    $(function () {
+        $('#myList a:nth-child(2)').tab('show')
+    })
+</script>
+<script src="./scripts/firebaseAPI_TEAM23.js"></script>
+<script src="./scripts/skeleton.js"></script>
+<script src="./scripts/settings.js"></script>
+<script src="./scripts/profile.js"></script>
+<!-- <script src="./scripts/script.js"></script> -->
+
+</body>
+
+</html>

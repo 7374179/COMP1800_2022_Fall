@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BBY23</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!------------------------>
+    <!-- Required meta tags -->
+    <!------------------------>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+
+
+
+</head>
+
+<body>
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- our own navbar goes here -->
+    <nav class="navbar navbar-light bg-bf">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/logo_imo.png" height="36">
+            </a>
+
+            <div class="d-flex align-items-center">
+                <!-- <form class="w-100 me-3" role="search">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form> -->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+            </div>
+
+
+            <div class="collapse navbar-collapse bg-light" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link mx-3 text-black fs-5" href="index.html">Home <span
+                                class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 text-black fs-5" href="about1.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 text-black fs-5" href="#" onclick="login()">Setting</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- the body of your page goes here -->
+    <br><br><br>
+    <!-- <div class="container text-center">
+        <div class="box">
+            <a href="board.html">
+                <div class="boxInner">
+                    <img src="./images/board.png" alt="image" width=>
+                    <div class="titleBox">BOARD</div>
+                </div>
+            </a>
+        </div>
+        <div class="box">
+            <a href="events.html">
+                <div class="boxInner">
+                    <img src="./images/event.png" alt="image">
+                    <div class="titleBox">EVENT</div>
+                </div>
+            </a>   
+        </div>
+        <div class="box">
+            <a href="friends.html">
+                <div class="boxInner">
+                    <img src="./images/friends.png" alt="image">
+                    <div class="titleBox">FRIENDS</div>
+                </div>
+            </a>
+        </div>
+        <div class="box">
+            <a href ="bookmarks.html">
+                <div class="boxInner">
+                    <img src="./images/bookmark.png" alt="image">
+                    <div class="titleBox">BOOKMARK</div>
+                </div>
+            </a>
+        </div>
+        <a href="login.html" class="btn btn-dark btn" role="button">  Log in / Sign in</a>
+
+    </div> -->
+
+    <!-- <div class="container text-center">
+            <div class="row row-cols-2">
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" width="100" alt="image">
+                        <div class="titleBox">BOOKMARK</div>
+                    </div>
+                </a>
+            </div></div>
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" alt="image">
+                    </div>
+                </a>
+            </div></div>
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" alt="image">
+                    </div>
+                </a>
+            </div></div>
+              <div class="col"><div class="box">
+                <a href ="bookmarks.html">
+                    <div class="boxInner">
+                        <img src="./images/bookmark.png" alt="image">
+                    </div>
+                </a>
+            </div></div>
+            </div>
+          </div> -->
+
+    <div class="container text-center">
+
+        <div class="row g-2">
+            <div class="col-6">
+                <div class="p-3 border bg-white"> <a href="#" onclick="login()"><img src="./images/board1.png"
+                            alt="image"></a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-3 border bg-white"><a href="#" onclick="login()"><img src="./images/event1.png"
+                            alt="image"></a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-3 border bg-white"><a href="#" onclick="login()"><img src="./images/bookmark1.png"
+                            alt="image"></a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-3 border bg-white"><a href="#" onclick="login()"><img src="./images/settings.png"
+                            alt="image"></a>
+                </div>
+            </div>
+        </div>
+        <a href="login.html" class="btn btn-dark btn" role="button"> Log in / Sign in</a>
+        <br>
+        <br>
+        <br>
+
+    </div>
+
+    <!-- <div class="container text-center">
+            <div class="row row-cols-2">
+              <div class="col"> <a href ="board.html"><img src="./images/board2.png" alt="image"></a></div>
+              <div class="col"><a href ="events.html"><img src="./images/event2.png" alt="image"></a></div>
+              <div class="col"><a href ="friends.html"><img src="./images/friends2.png" alt="image"></a></div>
+              <div class="col"><a href ="bookmarks.html"><img src="./images/bookmark2.png" alt="image"></a></div>
+            </div>
+          </div> -->
+
+
+
+
+
+
+
+    <!-- <img class="d-block mx-auto mb-4" src="./images/elmo.jpg" alt="" width="200" height="200"> -->
+    <!-- <h1>Welcome to our App</h1> -->
+    <!-- <style>
+        h1 {
+            text-align: center;
+        }
+    </style> -->
+    <!-- our own footer goes here-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        #elementID {
+            text-decoration: none;
+            color: black;
+
+        }
+
+        i:hover {
+            transform: scale(1.3);
+        }
+    </style>
+    <footer class="navbar justify-content-evenly bg-light fixed-bottom">
+        <div class="container py-2">
+            <i><a id="elementID" class="material-icons" href="index.html">home</a></i>
+            <i><a id="elementID" class="material-icons" href="javascript:history.back()">arrow_back_ios</a></i>
+            <i><a id="elementID" class="material-icons" href="javascript:history.forward()">arrow_forward_ios</a></i>
+            <i><a id="elementID" class="material-icons" href="" onClick="window.location.reload()">refresh</a></i>
+
+        </div>
+    </footer>
+
+
+
+
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script>
+        function login() {
+            let text = "Log in required."
+
+            if (confirm(text) == true) {
+
+                window.location = "login.html";
+
+                return true;
+
+            } else {
+
+                return false;
+            }
+
+
+        }
+
+
+    </script>
+    <script src="./scripts/firebaseAPI_TEAM23.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BBY23</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!------------------------>
+    <!-- Required meta tags -->
+    <!------------------------>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+
+</head>
+
+<body>
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- our own navbar goes here -->
+    <nav id="navbarPlaceholder"></nav>
+
+    <!-- Form that the user fills out for their post. -->
+    <form>
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" id="title" placeholder="title">
+        </div>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="name" placeholder="name">
+        </div>
+
+        <div class="form-group">
+            <label>School</label>
+            <input type="text" class="form-control" id="school" placeholder="school">
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" id="category">
+                <option>Studying</option>
+                <option>Professors</option>
+                <option>Classes</option>
+                <option>Life</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Summary (Shows up in card preview)</label>
+            <textarea class="form-control" id="short" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Content</label>
+            <textarea class="form-control" id="content" rows="8"></textarea>
+        </div>
+
+        <!-- Confirm and cancel buttons. -->
+        <div class="d-grid gap-2 d-flex justify-content-end">
+            <a class="btn btn-info" onclick="confirmQuit()">Cancel</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"
+                aria-pressed="true" onclick="confirmPost()">Post</button>
+        </div>
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- our own footer goes here-->
+
+    <nav id="footerPlaceholder"></nav>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script>
+        
+        // Confirms whether the user wants leave the page
+        function confirmQuit() {
+            let text = "Changes you made may not be saved.";
+            if (confirm(text) == true) {
+                window.location = "board.html";
+                return true;
+            } else{
+                return false;
+            }
+        }
+    </script>
+
+    <script src="./scripts/firebaseAPI_TEAM23.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/post.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+
+</body>
+
+</html>
